@@ -12,7 +12,7 @@ public class Mainf extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
+	 * Launch the application
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -28,7 +28,7 @@ public class Mainf extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame
 	 */
 	public Mainf() {
 		setTitle("Simple Expense Tracker");
