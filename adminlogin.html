@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adminlogin.css">
+    <script
+      src="https://kit.fontawesome.com/b14771b76e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Admin log-in</title>
+</head>
+
+<body>
+  <button class="btn" onclick="toggleLogin()">
+    Login as Admin
+  </button>
+  <div class="overlay">
+    <div class="login">
+      <div class="header">
+        <h1>login</h1>
+         <i class="fas fa-times" onclick="toggleLogin()"></i>
+      </div>
+
+      <div class="body">
+        <?php
+            // Create connection
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "nursery_management_system";
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+            // Check connection
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            if(isset($_POST['admin-username']) && isset($_POST['admin-pass'])) {
+                $name = mysqli_real_escape_string($conn, $_POST['admin-username']);
+                $pass = mysqli_real_escape_string($conn, $_POST['admin-pass']);
+
+                // Query to check if admin exists
+                $query = "SELECT * FROM admins WHERE name='$name' AND password='$pass' AND email='selma.lazizi@ensia.edu.dz'";
+                $result = mysqli_query($conn, $query);
+
+                if(mysqli_num_rows($result) == 1) {
+                    // Admin exists and credentials are correct
+                    header('Location: admin-dashboard.php');
+                    exit();
+                } else {
+                    // Invalid credentials
+                    echo "<p class='error'>Invalid username or password</p>";
+                }
+            }
+            mysqli_close($conn);
+        ?>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form" method="post">
+          <input type="text" name="admin-username" class="username" placeholder="enter your name"/>
+          <input type="password" name="admin-pass" placeholder="enter your password">
+          <div class="footer">
+            <button type="submit">login</button>    
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function toggleLogin(){
+      document.querySelector(".overlay").classList.toggle("open");
+    }
+  </script>
+</body>
+</html>

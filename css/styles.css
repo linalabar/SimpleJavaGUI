@@ -1,0 +1,373 @@
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set the font and background colors */
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  /* Style the header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #FAD3E7;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  /* Style the logo */
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0081B4;
+  }
+  
+  /* Style the navigation menu */
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-right: 1rem;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 0.5rem;
+    color: #333;
+    text-decoration: none;
+  }
+
+  nav ul li button {
+    display: block;
+    padding: 0.5rem;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    background-color: #EFA3C8;
+  }
+
+  nav ul li button:hover {
+    background-color: #EFA3C8;
+  }
+  
+  /* Style the hero section */
+  .hero {
+    position: relative;
+  }
+  
+  .hero img {
+    display: block;
+    width: 100%;
+    height: 700px;
+    z-index: -1;
+  }
+  
+  .hero h2 {
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+  }
+  
+  /* Style the location section */
+  .location {
+    text-align: center;
+    padding: 2rem;
+    background-color: #EFA3C8;
+  }
+  
+  .location h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  
+  .location p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Style the categories section */
+  .categories {
+    padding: 2rem;
+    background-color: #F4D9E7;
+  }
+  
+  .categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+  }
+  
+  .categories li {
+    width: 30%;
+    margin-bottom: 2rem;
+  }
+  
+  .categories a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .categories img {
+    width: 200px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .categories h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .categories p {
+    font-size: 1.2rem;
+  }
+  
+  /* Style the about section */
+  .about {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: #FAD3E7;
+  }
+  
+  .about .image img {
+    width: 40%;
+    margin: none;
+  }
+  
+  .about .text {
+    width: 40%;
+  }
+  
+  .about h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0081B4;
+  }
+
+.about p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Style the footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0081B4;
+  color: #fff;
+}
+
+footer p {
+  margin-right: 1rem;
+}
+
+footer ul {
+  display: flex;
+  list-style: none;
+}
+
+footer ul li {
+  margin-right: 1rem;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Style the login buttons */
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.login-buttons button {
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0081B4;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-buttons button:hover {
+  background-color: #EFA3C8;
+}
+
+/* Style the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+form label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px #ddd;
+}
+
+form button[type="submit"] {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0081B4;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #EFA3C8;
+}
+
+/*nurselogin*/
+.nurse-overlay{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 2);
+    z-index: 100;
+    display: none;
+}
+
+.nurse-overlay.open{
+    display: flex;
+    animation: show-overlay 0.5s;
+}
+
+@keyframes show-overlay{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.nurse-login{
+    padding: 50px 25px;
+    background: white;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.nurse-header{
+    position: relative;
+}
+
+.nurse-header h1{
+    text-align: center;
+    padding-bottom: 2px solid #000051;
+}
+
+.nurse-header i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+}
+/* here just change it according to your  button */
+.nurse-body .form input{
+    display: block;
+    padding: 10px;
+    margin: 25px 10px;
+    outline: none;
+    border: solid #000051 1px;
+    color: #000051;
+    transition: 0.4s;
+}
+
+.nurse-body .form input:focus{
+    border-color: '#534bae';
+}
+
+.nurse-footer{
+    position: relative;
+    height: 40px;
+    width: 100%;
+}
+
+.nurse-footer button{
+    position: absolute;
+    padding: 10px;
+    min-width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000051;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nurse-footer :hover{
+    background: #534bae;
+
+}
+  

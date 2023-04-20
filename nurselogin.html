@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nurselogin.css">
+    <script
+      src="https://kit.fontawesome.com/b14771b76e.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Nurse log-in</title>
+</head>
+
+<body>
+  <button class="btn" onclick="toggleLogin()">
+    Login as Nurse
+  </button>
+  <div class="overlay">
+    <div class="login">
+      <div class="header">
+        <h1>login</h1>
+         <i class="fas fa-times" onclick="toggleLogin()"></i>
+      </div>
+
+      <div class="body">
+        <?php
+          // Connect to the database
+          $servername = "localhost";
+          $username = "root";
+          $password = "";
+          $dbname = "nursery_management_system";
+
+          $conn = new mysqli($servername, $username, $password, $dbname);
+
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
+
+          // Insert the data into the "nurses" table when the form is submitted
+          if(isset($_POST['nurse-username']) && isset($_POST['nurse-email']) && isset($_POST['nurse-pass'])) {
+            $fullname = $_POST['nurse-username'];
+            $email = $_POST['nurse-email'];
+            $password = $_POST['nurse-pass'];
+
+            $sql = "INSERT INTO teachers (full_name, email, password ) VALUES ('$fullname', '$email', '$password')";
+            if ($conn->query($sql) === TRUE) {
+              echo "New record created successfully";
+            } else {
+              echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+          }
+
+          // Close the database connection
+          $conn->close();
+        ?>
+        <form class="form" method="post">
+          <input type="text" name="nurse-username" class="username" placeholder="enter your full name"/>
+          <input type="email" name="nurse-email" placeholder="enter your email ">
+          <input type="password" name="nurse-pass" placeholder="enter your password">
+          <div class="footer">
+            <button type="submit">login</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    function toggleLogin(){
+      document.querySelector(".overlay").classList.toggle("open");
+    }
+  </script>
+</body>
+</html>
